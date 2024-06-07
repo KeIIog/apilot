@@ -53,10 +53,10 @@ class CarInterface(CarInterfaceBase):
         ret.flags |= HyundaiFlags.USE_FCA.value
 
 
-    ret.steerActuatorDelay = 0.1  # Default delay
-    ret.steerLimitTimer = 0.4
+    ret.steerActuatorDelay = 0.3  # Default delay
+    ret.steerLimitTimer = 3.0
 
-    ret.steerRatio = 16.
+    ret.steerRatio = 15.5
     tire_stiffness_factor = 1.
     CarInterfaceBase.configure_torque_tune(candidate, ret.lateralTuning)
 
@@ -323,8 +323,8 @@ class CarInterface(CarInterfaceBase):
     ret.longitudinalActuatorDelayLowerBound = 0.5
     ret.longitudinalActuatorDelayUpperBound = 0.5
 
-    #ret.radarTimeStep = (1.0 / 50) # 50Hz   SCC11, RadarTrack은 50Hz
-    ret.radarTimeStep = (1.0 / 20) # 20Hz 레이더부하줄일겸..
+    ret.radarTimeStep = (1.0 / 50) # 50Hz  
+  
 
     # *** feature detection ***
     if candidate in CANFD_CAR:

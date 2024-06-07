@@ -463,13 +463,14 @@ class CruiseHelper:
     orientationRates = np.array(controls.sm['modelV2'].orientationRate.z, dtype=np.float32)
     # 계산된 결과로, oritetationRates를 나누어 조금더 curvature값이 커지도록 함.
     speed = min(self.turnSpeed_prev / 3.6, clip(CS.vEgo, 0.5, 100.0))    
-    #curvature = np.max(np.abs(orientationRates[12:])) / speed  # 12: 약1.4초 미래의 curvature를 계산함.
-    curvature = np.max(np.abs(orientationRates[12:20])) / speed  # 12: 약1.4~3.5초 미래의 curvature를 계산함.
+    
+    #curvature = np.max(np.abs(orientationRates[12:20])) / speed  # 12: 약1.4~3.5초 미래의 curvature를 계산함.
+    curvature = np.max(np.abs(orientationRates[16:30])) / speed  # 커브 타이밍 수정 keiiog 20240529
     curvature = self.curvatureFilter.process(curvature) * self.autoCurveSpeedFactor
     turnSpeed = 300
     if abs(curvature) > 0.0001:
       turnSpeed = interp(curvature, V_CURVE_LOOKUP_BP, V_CRUVE_LOOKUP_VALS)
-      turnSpeed = clip(turnSpeed, MIN_CURVE_SPEED, 255)
+      turnSpeed = clip(turnSpeed, MIN_CURVE_SPEED, 235)  # 255    keiiog
     else:
       turnSpeed = 300
 
@@ -677,6 +678,17 @@ class CruiseHelper:
     button,buttonLong,buttonSpeed = self.update_cruise_buttons(enabled, controls,CS,  buttonEvents, v_cruise_kph, metric)
     longActiveUser = self.longActiveUser
 
+    ##### Cruise Button 사용자 활성화 추가 20240525keiiog
+    for event in buttonEvents:
+        if event.type == "enable":
+            controls.enabled = True  # controls.enabled를 활성화합니다. (수정된 부분)
+        elif event.type == "disable":
+            controls.enabled = False  # controls.enabled를 비활성화합니다. (수정된 부분)
+        elif event.type == "engage" and controls.enabled:
+            longActiveUser = 1  # 인게이지 버튼을 눌렀고 controls.enabled가 활성화된 경우 longActiveUser를 1로 설정합니다. (추가된 부분)
+        elif event.type == "cancel":
+            longActiveUser = 0  # 취소 버튼을 눌렀을 때 longActiveUser를 0으로 설정합니다. (추가된 부분)
+
     ##### Cruise Button 처리...
     if buttonLong:
       if button in [ButtonType.accelCruise, ButtonType.decelCruise]:
@@ -710,8 +722,8 @@ class CruiseHelper:
         else:
           if self.xState == XState.softHold:
             longActiveUser = 1
-          if CS.gasPressed and v_cruise_kph < self.v_ego_kph_set:
-            v_cruise_kph = self.v_ego_kph_set
+          #if CS.gasPressed and v_cruise_kph < self.v_ego_kph_set:     # 20240525 keiiog  삭제
+            #v_cruise_kph = self.v_ego_kph_set  # 사용자 액셀레이터 밟으면 현재 속도로 인게이지 갱신
           elif self.xState == XState.softHold:
             pass
           elif self.xState == XState.e2eStop and self.v_ego_kph < 5: #5km/h 미만, 신호감속중.. (-)를 누르면 크루즈해제... 이러면 설설가겠지? 다시누르면 정지..
@@ -863,26 +875,32 @@ class CruiseHelper:
         longActiveUser = -2
         self.longActiveUserReady, v_cruise_kph = self.check_brake_cruise_on(CS, v_cruise_kph)
       elif CS.gasPressed:  
+        longActiveUser = -1  # Gas pressed, do not engage 20240525 keiiog
         self.longActiveUserReady, v_cruise_kph = self.check_gas_cruise_on(CS, v_cruise_kph)
       elif not CS.gasPressed and self.gasPressedCount > 0:
-        longActiveUser,v_cruise_kph = self.check_gas_cruise_on(CS, v_cruise_kph)
+        longActiveUser = -1  # Avoid auto engage after gas pedal release     #20240525 keiiog
+        #longActiveUser,v_cruise_kph = self.check_gas_cruise_on(CS, v_cruise_kph)  #20240525 keiiog
       elif not brakePressed and self.preBrakePressed:
         longActiveUser,v_cruise_kph = self.check_brake_cruise_on(CS, v_cruise_kph)
-      elif self.userCruisePaused:
-        if self.v_ego_kph > 3.0 and self.dRel > 0 and self.vRel < 0:          
-          v_cruise_kph = self.v_ego_kph_set
-          longActiveUser = 3
-        elif self.v_ego_kph > 20.0 and self.xState == XState.e2eStop: # and abs(self.position_y) < 3.0:
-          v_cruise_kph = self.v_ego_kph_set
-          longActiveUser = 3
-        pass
 
-      if longActiveUser <= 0 and not brakePressed and not CS.gasPressed:
-        cruiseOnDist = abs(self.cruiseOnDist)
-        if cruiseOnDist > 0.0 and CS.vEgo > 0.2 and self.vRel < 0 and self.dRel < cruiseOnDist:
-          self.send_apilot_event(controls, EventName.stopStop, 10.0)
-          if self.cruiseOnDist > 0.0:
-            longActiveUser = 3
+      ########################################### 삭제 20240525  keiiog #######################################
+      #elif self.userCruisePaused:
+        #if self.v_ego_kph > 3.0 and self.dRel > 0 and self.vRel < 0:          
+          #v_cruise_kph = self.v_ego_kph_set
+          #longActiveUser = 3
+        #elif self.v_ego_kph > 20.0 and self.xState == XState.e2eStop: # and abs(self.position_y) < 3.0:
+          #v_cruise_kph = self.v_ego_kph_set
+          #longActiveUser = 3
+        #pass
+
+      #if longActiveUser <= 0 and not brakePressed and not CS.gasPressed:
+        #cruiseOnDist = abs(self.cruiseOnDist)
+        #if cruiseOnDist > 0.0 and CS.vEgo > 0.2 and self.vRel < 0 and self.dRel < cruiseOnDist:
+          #self.send_apilot_event(controls, EventName.stopStop, 10.0)
+          #if self.cruiseOnDist > 0.0:
+            #longActiveUser = 3
+
+      ########################################### 삭제 20240525  keiiog #######################################
 
       self.cruise_control(controls, CS, longActiveUser, v_cruise_kph)
 
@@ -978,4 +996,3 @@ def enable_radar_tracks(CP, logcan, sendcan):
         print("Failed to enable tracks" + str(e))
   print("END Try to enable radar tracks")
   # END try to enable radar tracks
-

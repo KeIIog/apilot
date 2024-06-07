@@ -3,29 +3,42 @@
   "params": [
     {
       "group": "조향일반",
+      "name": "CameraOffset",
+      "title": "차선치우침 좌우보정 Lane (0)",
+      "descr": "(-)차가 우로 이동,(+)차가 좌로 이동",
+      "egroup": "LAT",
+      "etitle": "CameraOffset (0)",
+      "edescr": "(-)Left,(+)Right",
+      "min": -50,
+      "max": 50,
+      "default": 0,
+      "unit": 5
+    },
+    {
+      "group": "조향일반",
       "name": "PathOffset",
-      "title": "차선치우침 좌우보정(0)",
-      "descr": "(-)좌측,(+)우측",
+      "title": "차선치우침 좌우보정 Laneless (0)",
+      "descr": "(-)차가 우로 이동,(+)차가 좌로 이동",
       "egroup": "LAT",
       "etitle": "PathOffset (0)",
       "edescr": "(-)Left,(+)Right",
       "min": -200,
       "max": 200,
       "default": 0,
-      "unit": 1
+      "unit": 10
     },
     {
       "group": "정지",
       "name": "StopDistance",
-      "title": "정지거리(600cm)",
+      "title": "정지거리(700cm)",
       "descr": "선행차와 정지하는 거리를 입력합니다.",
       "egroup": "STOP",
-      "etitle": "StopDistance(600cm)",
+      "etitle": "StopDistance(700cm)",
       "edescr": "Adjust stop distance",
       "min": 200,
       "max": 1000,
-      "default": 600,
-      "unit": 50
+      "default": 700,
+      "unit": 100
     },
     {
       "group": "정지",
@@ -43,40 +56,40 @@
     {
       "group": "조향튜닝",
       "name": "LiveSteerRatioApply",
-      "title": "LiveSteerRatioApply(100%)",
+      "title": "LiveSteerRatioApply(90%)",
       "descr": "",
       "egroup": "LAT",
-      "etitle": "LiveSteerRatioApply(100%)",
+      "etitle": "LiveSteerRatioApply(90%)",
       "edescr": "",
       "min": 1,
       "max": 200,
-      "default": 100,
-      "unit": 1
+      "default": 90,
+      "unit": 10
     },
     {
       "group": "조향튜닝",
       "name": "SteeringRateCost",
-      "title": "SteeringRateCost(700)",
+      "title": "SteeringRateCost(0)",
       "descr": "조향률 제한 가중치",
       "egroup": "LAT",
-      "etitle": "xSteeringRateCost(700)",
+      "etitle": "xSteeringRateCost(0)",
       "edescr": "",
       "min": 0,
       "max": 1000,
-      "default": 800,
-      "unit": 1
+      "default": 0,
+      "unit": 10
     },
     {
       "group": "조향튜닝",
       "name": "LateralAccelCost",
-      "title": "_LateralAccelCost(0)",
+      "title": "_LateralAccelCost(1)",
       "descr": "측면 가속도 제한 가중치",
       "egroup": "LAT",
-      "etitle": "x_LateralAccelCost(0)",
+      "etitle": "x_LateralAccelCost(1)",
       "edescr": "",
       "min": 0,
       "max": 1000,
-      "default": 100,
+      "default": 1,
       "unit": 1
     },
     {
@@ -95,15 +108,15 @@
     {
       "group": "조향튜닝",
       "name": "PathCostApply",
-      "title": "_PathCostApply(100)",
+      "title": "_PathCostApply(500)",
       "descr": "경로추종가충치",
       "egroup": "LAT",
-      "etitle": "x_PathCostApply(100)",
+      "etitle": "x_PathCostApply(500)",
       "edescr": "",
       "min": 0,
       "max": 500,
-      "default": 100,
-      "unit": 1
+      "default": 500,
+      "unit": 100
     },
     {
       "group": "조향튜닝",
@@ -115,16 +128,16 @@
       "edescr": "",
       "min": 0,
       "max": 100,
-      "default": 5,
+      "default": 4,
       "unit": 1
     },
     {
       "group": "조향튜닝",
       "name": "LateralTorqueCustom",
-      "title": "_LateralTorqueCustom(0)",
+      "title": "_LateralTorqueCustom(1)",
       "descr": "0:LiveTorque, 1:CustomTorque, 2:CustomTorque&LiveTorque",
       "egroup": "LAT",
-      "etitle": "_LateralTorqueCustom(0)",
+      "etitle": "_LateralTorqueCustom(1)",
       "edescr": "",
       "min": 0,
       "max": 2,
@@ -134,28 +147,28 @@
     {
       "group": "조향튜닝",
       "name": "LateralTorqueAccelFactor",
-      "title": "_LateralTorqueAccelFactor*0.001(2500)",
+      "title": "_LateralTorqueAccelFactor*0.001(2700)",
       "descr": "",
       "egroup": "LAT",
-      "etitle": "_LateralTorqueAccelFactor*0.001(2500)",
+      "etitle": "_LateralTorqueAccelFactor*0.001(2700)",
       "edescr": "",
       "min": 1000,
       "max": 4000,
-      "default": 2500,
-      "unit": 1
+      "default": 2700,
+      "unit": 100
     },
     {
       "group": "조향튜닝",
       "name": "LateralTorqueFriction",
-      "title": "_LateralTorqueFriction*0.001(100)",
+      "title": "_LateralTorqueFriction*0.001(65)",
       "descr": "",
       "egroup": "LAT",
-      "etitle": "_LateralTorqueFriction*0.001(100)",
+      "etitle": "_LateralTorqueFriction*0.001(65)",
       "edescr": "",
       "min": 0,
       "max": 1000,
-      "default": 100,
-      "unit": 1
+      "default": 60,
+      "unit": 5
     },
     {
       "group": "조향튜닝",
@@ -168,7 +181,7 @@
       "min": 0,
       "max": 100,
       "default": 30,
-      "unit": 1
+      "unit": 5
     },
     {
       "group": "크루즈",
@@ -233,7 +246,7 @@
       "min": 0,
       "max": 300,
       "default": 0,
-      "unit": 1
+      "unit": 10
     },
     {
       "group": "가속설정",
@@ -342,14 +355,14 @@
     {
       "group": "주행튜닝",
       "name": "JerkStartLimit",
-      "title": "JERK STARTx0.1(20)",
+      "title": "JERK STARTx0.1(50)",
       "descr": "값이 커지면 출발응답성이 빨라집니다.",
       "egroup": "LONG",
-      "etitle": "JERK STARTx0.1(20)",
+      "etitle": "JERK STARTx0.1(50)",
       "edescr": "",
       "min": 1,
       "max": 50,
-      "default": 10,
+      "default": 50,
       "unit": 5
     },
     {
@@ -363,15 +376,15 @@
       "min": 50,
       "max": 150,
       "default": 100,
-      "unit": 1
+      "unit": 10
     },
     {
       "group": "주행튜닝",
       "name": "LongitudinalActuatorDelayLowerBound",
-      "title": "_LADLowerBound(30)",
-      "descr": "낮추면 정지력증가, 가속력감소",
+      "title": "_LADLowerBound(50)",
+      "descr": "낮추면 정지력증가, 가속력감소, 추천 60",
       "egroup": "LONG",
-      "etitle": "LADLowerBound(30)",
+      "etitle": "LADLowerBound(50)",
       "edescr": "",
       "min": 10,
       "max": 100,
@@ -381,10 +394,10 @@
     {
       "group": "주행튜닝",
       "name": "LongitudinalActuatorDelayUpperBound",
-      "title": "_LADUpperBound(30)",
-      "descr": "올리면 감속력 증가",
+      "title": "_LADUpperBound(50)",
+      "descr": "올리면 감속력 증가, 추천 20",
       "egroup": "LONG",
-      "etitle": "LADUpperBound(30)",
+      "etitle": "LADUpperBound(50)",
       "edescr": "",
       "min": 10,
       "max": 100,
@@ -402,20 +415,20 @@
       "min": 0,
       "max": 2000,
       "default": 0,
-      "unit": 1
+      "unit": 10
     },
     {
       "group": "주행튜닝",
       "name": "LongitudinalTuningKf",
-      "title": "Kf게인(105)",
+      "title": "Kf게인(100)",
       "descr": "피드포워드 게인",
       "egroup": "LONG",
-      "etitle": "Long KfV(105)",
+      "etitle": "Long KfV(100)",
       "edescr": "",
       "min": 0,
       "max": 200,
       "default": 100,
-      "unit": 1
+      "unit": 10
     },
     {
       "group": "감속제어",
@@ -425,10 +438,10 @@
       "egroup": "DECEL",
       "etitle": "TrafficDecelRatio(80%)",
       "edescr": "",
-      "min": 10,
+      "min": 5,
       "max": 120,
-      "default": 5,
-      "unit": 1
+      "default": 80,
+      "unit": 10
     },
     {
       "group": "감속제어",
@@ -440,7 +453,7 @@
       "edescr": "0:No Stop, 1: Use, 2:Apilot method,3:experimental mix",
       "min": 0,
       "max": 3,
-      "default": 1,
+      "default": 2,
       "unit": 1
     },
     {
@@ -453,7 +466,7 @@
       "edescr": "Lower value, slow",
       "min": 1,
       "max": 32,
-      "default": 32,
+      "default": 30,
       "unit": 1
     },
     {
@@ -467,45 +480,45 @@
       "min": 1,
       "max": 200,
       "default": 90,
-      "unit": 1
+      "unit": 10
     },
     {
       "group": "감속제어",
       "name": "AutoCurveSpeedFactor",
-      "title": "커브속도조절비율(100%)",
+      "title": "커브속도조절비율(160%)",
       "descr": "높으면 커브속도가 느려집니다.",
       "egroup": "DECEL",
-      "etitle": "CurveSpeedFactor(100%)",
+      "etitle": "CurveSpeedFactor(160%)",
       "edescr": "Higher value, slow curve speed",
       "min": 50,
       "max": 300,
-      "default": 100,
-      "unit": 1
+      "default": 160,
+      "unit": 10
     },
     {
       "group": "감속제어",
       "name": "AutoCurveSpeedFactorIn",
-      "title": "커브속도조절비율진입(10%)",
+      "title": "커브속도조절비율진입(90%)",
       "descr": "올리면 진입속도를 더 줄이도록 노력합니다.",
       "egroup": "DECEL",
-      "etitle": "CurveSpeedFactorWeight(10%)",
+      "etitle": "CurveSpeedFactorWeight(90%)",
       "edescr": "Higher value, more speed down",
       "min": 0,
       "max": 300,
-      "default": 10,
-      "unit": 1
+      "default": 90,
+      "unit": 10
     },
     {
       "group": "조향일반",
       "name": "AutoTurnControl",
-      "title": "NOO Helper(0)",
+      "title": "NOO Helper(4)",
       "descr": "0:사용안함,1:Navi Helper, 2:자동차로변경, 3:자동속도제어, 4:실험모드",
       "egroup": "LATSET",
-      "etitle": "NOO Helper(0)",
+      "etitle": "NOO Helper(4)",
       "edescr": "0: Not used, 1:Navi Helper, 2:laneChange, 3:AutoSpeed",
       "min": 0,
-      "max": 3,
-      "default": 0,
+      "max": 4,
+      "default": 4,
       "unit": 1
     },
     {
@@ -532,7 +545,7 @@
       "min": 0,
       "max": 100,
       "default": 20,
-      "unit": 5
+      "unit": 10
     },
     {
       "group": "조향일반",
@@ -550,23 +563,23 @@
     {
       "group": "조향일반",
       "name": "AutoLaneChangeSpeed",
-      "title": "자동차선변경속도(30)",
+      "title": "자동차선변경속도(60)",
       "descr": "해당속도 이상에서만 자동차선변경",
       "egroup": "LATSET",
-      "etitle": "Auto LC Min.Speed(30)",
+      "etitle": "Auto LC Min.Speed(60)",
       "edescr": "Auto lane change min speed",
       "min": 5,
       "max": 60,
-      "default": 30,
+      "default": 60,
       "unit": 5
     },
     {
       "group": "버튼설정",
       "name": "CruiseButtonMode",
-      "title": "크루즈버튼작동모드(0)",
+      "title": "크루즈버튼작동모드(2)",
       "descr": "0:일반,1:사용자1,2:사용자2,3:사용자3,4:사용자4",
       "egroup": "BUTN",
-      "etitle": "Cruise Button Mode(0)",
+      "etitle": "Cruise Button Mode(2)",
       "edescr": "0:General,1:User1,2:User2,3:User3,4:User4",
       "min": 0,
       "max": 4,
@@ -589,14 +602,14 @@
     {
       "group": "크루즈",
       "name": "CruiseSpeedMin",
-      "title": "크루즈 최저속도(10)",
+      "title": "크루즈 최저속도(1)",
       "descr": "크루즈제어의 최저속도",
       "egroup": "BUTN",
-      "etitle": "Cruise Min Speed(10)",
+      "etitle": "Cruise Min Speed(1)",
       "edescr": "",
-      "min": 10,
+      "min": 1,
       "max": 50,
-      "default": 10,
+      "default": 1,
       "unit": 1
     },
     {
@@ -615,15 +628,15 @@
     {
       "group": "크루즈",
       "name": "AutoResumeFromGasSpeed",
-      "title": "엑셀크루즈ON:속도",
+      "title": "엑셀크루즈ON:속도(200)",
       "descr": "",
-      "egroup": "CRUISE",
+      "egroup": "CRUISE(200)",
       "etitle": "GasCruiseON:Speed",
       "edescr": "",
-      "min": 20,
-      "max": 140,
-      "default": 0,
-      "unit": 5
+      "min": 0,
+      "max": 200,
+      "default": 200,
+      "unit": 10
     },
     {
       "group": "크루즈",
@@ -642,7 +655,7 @@
       "group": "크루즈",
       "name": "AutoCancelFromGasMode",
       "title": "엑셀 크루즈OFF:모드",
-      "descr": "0:유지, 1:항상, 2:레이더OFF시에만",
+      "descr": "0:사용안함, 1:항상켜기, 2:선행차량없을때만",
       "egroup": "CRUISE",
       "etitle": "GasCruiseOFF: Mode",
       "edescr": "0:Not used, 1:Always OFF, 2:No LeadCar",
@@ -667,15 +680,15 @@
     {
       "group": "크루즈",
       "name": "AutoResumeFromBrakeReleaseDist",
-      "title": "브레이크해제 크루즈ON:주행,선행차",
+      "title": "브레이크해제 크루즈ON:주행,선행차(8000)",
       "descr": "선행차량이 일정거리 이상이면 크루즈를 켭니다.",
       "egroup": "CRUISE",
-      "etitle": "BrakeCruiseON: Moving,LeadCar",
+      "etitle": "BrakeCruiseON: Moving,LeadCar(8000)",
       "edescr": "If the LeadCar is beyond the set distance, then CruiseON",
       "min": 0,
-      "max": 80,
-      "default": 0,
-      "unit": 1
+      "max": 8000,
+      "default": 8000,
+      "unit": 100
     },
     {
       "group": "크루즈",
@@ -693,14 +706,14 @@
     {
       "group": "크루즈",
       "name": "AutoResumeFromBrakeCarSpeed",
-      "title": "브레이크해제 크루즈ON:주행,속도",
+      "title": "브레이크해제 크루즈ON:주행,속도(200)",
       "descr": "빠른주행중 속도줄임. 설정속도이상이면 작동(선행차없음)",
       "egroup": "CRUISE",
-      "etitle": "BrakeCruiseON: Moving,Speed",
+      "etitle": "BrakeCruiseON: Moving,Speed(200)",
       "edescr": "Speed down, and brake OFF",
       "min": 0,
-      "max": 140,
-      "default": 0,
+      "max": 200,
+      "default": 200,
       "unit": 1
     },
     {
@@ -719,153 +732,153 @@
     {
       "group": "크루즈",
       "name": "AutoSyncCruiseSpeedMax",
-      "title": "자동속도업데이트속도 (120)",
+      "title": "자동속도업데이트속도(0)",
       "descr": "가속시 크루즈속도보다 높아지면 지정 속도를 올려줍니다.",
       "egroup": "CRUISE",
-      "etitle": "AutoSyncSpeedMax: Gas",
+      "etitle": "AutoSyncSpeedMax: Gas(0)",
       "edescr": "",
       "min": 0,
       "max": 200,
-      "default": 120,
+      "default": 0,
       "unit": 10
     },
     {
       "group": "크루즈",
       "name": "AutoSpeedUptoRoadSpeedLimit",
-      "title": "자동속도증가모드 (100)",
+      "title": "자동속도증가모드 (0)",
       "descr": "전방차량따라 로드스피드까지 자동속도올림.",
       "egroup": "CRUISE",
-      "etitle": "AutoSyncSpeedMax: LeadCar",
+      "etitle": "AutoSyncSpeedMax: LeadCar(0)",
       "edescr": "",
       "min": 0,
       "max": 200,
-      "default": 100,
+      "default": 0,
       "unit": 10
     },
     {
       "group": "화면",
       "name": "ShowDebugUI",
-      "title": "디버그정보 표시",
+      "title": "디버그정보 표시(0)",
       "descr": "",
       "egroup": "DISP",
-      "etitle": "Show Debug Info",
+      "etitle": "Show Debug Info(0)",
       "edescr": "",
       "min": 0,
       "max": 1,
-      "default": 1,
+      "default": 0,
       "unit": 1
     },
     {
       "group": "화면",
       "name": "ShowDateTime",
-      "title": "시간정보표시",
+      "title": "시간정보표시(0)",
       "descr": "",
       "egroup": "DISP",
-      "etitle": "Show Time Info",
+      "etitle": "Show Time Info(0)",
       "edescr": "0:None, 1:Time/Date, 2:Time, 3:Date",
       "min": 0,
       "max": 3,
-      "default": 1,
+      "default": 0,
       "unit": 1
     },
     {
       "group": "화면",
       "name": "ShowHudMode",
-      "title": "HUD표시모드",
+      "title": "HUD표시모드(5)",
       "descr": "0:일반,1:APilot,2:하단고정,3:상단고정,4:좌측고정,5:좌하단고정",
       "egroup": "DISP",
-      "etitle": "Show Hud Info",
+      "etitle": "Show Hud Info(5)",
       "edescr": "0:General,1:Apilot,2:Bottom,3:Top,4:Left,5:LeftBottom",
       "min": 0,
       "max": 5,
-      "default": 1,
+      "default": 5,
       "unit": 1
     },
     {
       "group": "화면",
       "name": "ShowSteerRotate",
-      "title": "핸들회전",
+      "title": "핸들회전(0)",
       "descr": "",
       "egroup": "DISP",
-      "etitle": "Show Steer Rotate",
+      "etitle": "Show Steer Rotate(0)",
       "edescr": "",
       "min": 0,
       "max": 1,
-      "default": 1,
+      "default": 0,
       "unit": 1
     },
     {
       "group": "화면",
       "name": "ShowPathEnd",
-      "title": "패쓰끝표시",
+      "title": "패쓰끝표시(0)",
       "descr": "",
       "egroup": "DISP",
-      "etitle": "Show Path End",
+      "etitle": "Show Path End(0)",
       "edescr": "",
       "min": 0,
       "max": 2,
-      "default": 1,
+      "default": 0,
       "unit": 1
     },
     {
       "group": "화면",
       "name": "ShowAccelRpm",
-      "title": "가속도표시",
+      "title": "가속도표시(0)",
       "descr": "0:표시안함,1:가속도,2:가속도+RPM",
       "egroup": "DISP",
-      "etitle": "Show Accel, RPM",
+      "etitle": "Show Accel, RPM(0)",
       "edescr": "0:None,1:Accel,2:Accel+RPM",
       "min": 0,
       "max": 2,
-      "default": 1,
+      "default": 0,
       "unit": 1
     },
     {
       "group": "화면",
       "name": "ShowTpms",
-      "title": "TPMS표시",
+      "title": "TPMS표시(0)",
       "descr": "",
       "egroup": "DISP",
-      "etitle": "Show TPMS Info",
+      "etitle": "Show TPMS Info(0)",
       "edescr": "",
       "min": 0,
       "max": 1,
-      "default": 1,
+      "default": 0,
       "unit": 1
     },
     {
       "group": "화면",
       "name": "ShowSteerMode",
-      "title": "핸들표시모드",
+      "title": "핸들표시모드(2)",
       "descr": "0:검정핸들,1:칼라핸들,2:핸들없음",
       "egroup": "DISP",
-      "etitle": "Show Steer Color",
+      "etitle": "Show Steer Color(2)",
       "edescr": "0:Black, 1:Color, 2:None",
       "min": 0,
       "max": 2,
-      "default": 1,
+      "default": 2,
       "unit": 1
     },
     {
       "group": "화면",
       "name": "ShowDeviceState",
-      "title": "디바이스정보",
+      "title": "디바이스정보(0)",
       "descr": "",
       "egroup": "DISP",
-      "etitle": "Show Device Info",
+      "etitle": "Show Device Info(0)",
       "edescr": "",
       "min": 0,
       "max": 1,
-      "default": 1,
+      "default": 0,
       "unit": 1
     },
     {
       "group": "화면",
       "name": "ShowConnInfo",
-      "title": "부가정보",
+      "title": "부가정보(1)",
       "descr": "NDA,SCC2,RadarTracks정보표시",
       "egroup": "DISP",
-      "etitle": "Show Conn Info",
+      "etitle": "Show Conn Info(1)",
       "edescr": "",
       "min": 0,
       "max": 1,
@@ -875,14 +888,14 @@
     {
       "group": "화면",
       "name": "ShowLaneInfo",
-      "title": "차선정보",
+      "title": "차선정보(2)",
       "descr": "-1:없음, 0:패스만, 1:레인, 2:로드엣지",
       "egroup": "DISP",
-      "etitle": "Show Lane Info",
+      "etitle": "Show Lane Info(2)",
       "edescr": "-1:None, 0:Path, 1:Path+Lane, 2:Path+Lane+RoadEdge",
       "min": -1,
       "max": 2,
-      "default": 1,
+      "default": 2,
       "unit": 1
     },
     {
@@ -891,7 +904,7 @@
       "title": "BSD정보(1)",
       "descr": "0:없음,1:BSD정보보임",
       "egroup": "DISP",
-      "etitle": "Show BSD Info",
+      "etitle": "Show BSD Info(0)",
       "edescr": "",
       "min": 0,
       "max": 1,
@@ -901,27 +914,27 @@
     {
       "group": "화면",
       "name": "ShowGapInfo",
-      "title": "GAP정보(0)",
+      "title": "GAP정보(-1)",
       "descr": "-1:표시안함,0:갭,주행모드,1:그래프도",
       "egroup": "DISP",
-      "etitle": "Show GAP dist Info",
+      "etitle": "Show GAP dist Info(-1)",
       "edescr": "-1:None,0:Gap,Mode,1:+Graph",
       "min": -1,
       "max": 1,
-      "default": 0,
+      "default": -1,
       "unit": 1
     },
     {
       "group": "화면",
       "name": "ShowDmInfo",
-      "title": "DM정보(1)",
+      "title": "DM정보(0)",
       "descr": "0:안함,1:사용함,-1:MODEL사용안함(재시동)",
       "egroup": "DISP",
-      "etitle": "Show DM Info",
+      "etitle": "Show DM Info(0)",
       "edescr": "",
       "min": -1,
       "max": 1,
-      "default": 1,
+      "default": 0,
       "unit": 1
     },
     {
@@ -930,7 +943,7 @@
       "title": "레이더감지정보(0)",
       "descr": "0:안함,1:표시함,2:상대위치,3:정지차량",
       "egroup": "DISP",
-      "etitle": "Show Radar Info",
+      "etitle": "Show Radar Info(0)",
       "edescr": "",
       "min": 0,
       "max": 3,
@@ -940,14 +953,14 @@
     {
       "group": "화면패스",
       "name": "ShowZOffset",
-      "title": "패스높이(170)",
+      "title": "패스높이(300)",
       "descr": "패스끝이 선행차 아래표시될때까지 올릴것",
       "egroup": "DISP",
-      "etitle": "Show Path Z Offset",
+      "etitle": "Show Path Z Offset(300)",
       "edescr": "",
       "min": -200,
       "max": 300,
-      "default": 0,
+      "default": 300,
       "unit": 1
     },
     {
@@ -966,66 +979,66 @@
     {
       "group": "화면패스",
       "name": "ShowPathColor",
-      "title": "패스색상,레인리스(12)",
+      "title": "패스색상,레인리스(11)",
       "descr": "(+10:띠)0:빨,1:주,2:노,3:초,4:파,5:남,6:보,7:고,8:흰,9:검",
       "egroup": "DISP",
-      "etitle": "Show Path Color:LaneLess(12)",
+      "etitle": "Show Path Color:LaneLess(11)",
       "edescr": "",
       "min": 0,
       "max": 19,
-      "default": 12,
-      "unit": 1
-    },
-    {
-      "group": "화면패스",
-      "name": "ShowPathModeCruiseOff",
-      "title": "패스종류,크루즈OFF(9)",
-      "descr": "0:일반,1,2:사각,3,4:^^,5,6:사각,7,8:^^,9,10,11:smooth^^,12:smooth2^^,13:3줄,14:2줄,15:1줄",
-      "egroup": "DISP",
-      "etitle": "Show Path Mode:CruiseOFF(9)",
-      "edescr": "",
-      "min": 0,
-      "max": 15,
-      "default": 9,
-      "unit": 1
-    },
-    {
-      "group": "화면패스",
-      "name": "ShowPathColorCruiseOff",
-      "title": "패스색상,크루즈OFF(1)",
-      "descr": "(+10:띠)0:빨,1:주,2:노,3:초,4:파,5:남,6:보,7:고,8:흰,9:검",
-      "egroup": "DISP",
-      "etitle": "Show Path Color:CruiseOFF(1)",
-      "edescr": "",
-      "min": 0,
-      "max": 19,
-      "default": 1,
-      "unit": 1
-    },
-    {
-      "group": "화면패스",
-      "name": "ShowPathModeLane",
-      "title": "패스종류,레인모드(11)",
-      "descr": "0:일반,1,2:사각,3,4:^^,5,6:사각,7,8:^^,9,10,11:smooth^^,12:smooth2^^,13:3줄,14:2줄,15:1줄",
-      "egroup": "DISP",
-      "etitle": "Show Path Mode:LaneMode(11)",
-      "edescr": "",
-      "min": 0,
-      "max": 15,
       "default": 11,
       "unit": 1
     },
     {
       "group": "화면패스",
-      "name": "ShowPathColorLane",
-      "title": "패스색상,레인모드(3)",
+      "name": "ShowPathModeCruiseOff",
+      "title": "패스종류,크루즈OFF(0)",
+      "descr": "0:일반,1,2:사각,3,4:^^,5,6:사각,7,8:^^,9,10,11:smooth^^,12:smooth2^^,13:3줄,14:2줄,15:1줄",
+      "egroup": "DISP",
+      "etitle": "Show Path Mode:CruiseOFF(0)",
+      "edescr": "",
+      "min": 0,
+      "max": 15,
+      "default": 0,
+      "unit": 1
+    },
+    {
+      "group": "화면패스",
+      "name": "ShowPathColorCruiseOff",
+      "title": "패스색상,크루즈OFF(18)",
       "descr": "(+10:띠)0:빨,1:주,2:노,3:초,4:파,5:남,6:보,7:고,8:흰,9:검",
       "egroup": "DISP",
-      "etitle": "Show Path Color:LaneMode(3)",
+      "etitle": "Show Path Color:CruiseOFF(18)",
       "edescr": "",
       "min": 0,
       "max": 19,
-      "default": 3,
+      "default": 18,
+      "unit": 1
+    },
+    {
+      "group": "화면패스",
+      "name": "ShowPathModeLane",
+      "title": "패스종류,레인모드(12)",
+      "descr": "0:일반,1,2:사각,3,4:^^,5,6:사각,7,8:^^,9,10,11:smooth^^,12:smooth2^^,13:3줄,14:2줄,15:1줄",
+      "egroup": "DISP",
+      "etitle": "Show Path Mode:LaneMode(12)",
+      "edescr": "",
+      "min": 0,
+      "max": 15,
+      "default": 12,
+      "unit": 1
+    },
+    {
+      "group": "화면패스",
+      "name": "ShowPathColorLane",
+      "title": "패스색상,레인모드(13)",
+      "descr": "(+10:띠)0:빨,1:주,2:노,3:초,4:파,5:남,6:보,7:고,8:흰,9:검",
+      "egroup": "DISP",
+      "etitle": "Show Path Color:LaneMode(13)",
+      "edescr": "",
+      "min": 0,
+      "max": 19,
+      "default": 13,
       "unit": 1
     },
     {
@@ -1044,14 +1057,14 @@
     {
       "group": "화면",
       "name": "ShowPlotMode",
-      "title": "디버그플롯(0)",
+      "title": "디버그플롯(2)",
       "descr": "1:가속도,2:조향가속도,3:속도,4:모델x",
       "egroup": "DISP",
-      "etitle": "Show Debug plot(0)",
+      "etitle": "Show Debug plot(2)",
       "edescr": "0:None,1:Accel,2:SteerAccel,3:Velocity,4:model_x",
       "min": 0,
       "max": 5,
-      "default": 0,
+      "default": 2,
       "unit": 1
     },
     {
@@ -1083,10 +1096,10 @@
     {
       "group": "조향일반",
       "name": "UseLaneLineSpeed",
-      "title": "x레인모드작동속도(0)",
-      "descr": "레인모드 작동속도: 0: 안함...",
+      "title": "레인모드 작동 시작속도(0)",
+      "descr": "레인모드 사용: 5, 안함: 0 ",
       "egroup": "LATSET",
-      "etitle": "xLaneModeSpeed(0)",
+      "etitle": "LaneModeSpeed(0)",
       "edescr": "0:Not used",
       "min": 0,
       "max": 200,
@@ -1109,66 +1122,66 @@
     {
       "group": "시작",
       "name": "MaxAngleFrames",
-      "title": "MaxAngleFrames(89)",
-      "descr": "89:기본값",
+      "title": "MaxAngleFrames(87)",
+      "descr": "기본:89 추천:87, 85",
       "egroup": "START",
-      "etitle": "MaxAngleFrames(1)",
+      "etitle": "MaxAngleFrames(87)",
       "edescr": "",
       "min": 80,
       "max": 100,
-      "default": 89,
+      "default": 87,
       "unit": 1
     },
     {
       "group": "시작",
       "name": "SoftHoldMode",
-      "title": "소프트오토홀드기능(1)",
+      "title": "소프트오토홀드기능(0)",
       "descr": "0:사용안함,1:사용,2:SCC제어(오류발생시X)",
       "egroup": "START",
-      "etitle": "SoftAutoHoldFunction(1)",
+      "etitle": "SoftAutoHoldFunction(0)",
       "edescr": "0:NotUsed,1:Use,2:SCC control",
       "min": 0,
       "max": 2,
-      "default": 1,
+      "default": 0,
       "unit": 1
     },
     {
       "group": "시작",
       "name": "ExperimentalLongitudinalEnabled",
-      "title": "롱컨사용(0)",
+      "title": "롱컨사용(1)",
       "descr": "SCC배선개조, 레이터트랙사용시 이용가능",
       "egroup": "START",
-      "etitle": "Long control enabled",
+      "etitle": "Long control enabled(1)",
       "edescr": "",
       "min": 0,
       "max": 1,
-      "default": 0,
+      "default": 1,
       "unit": 1
     },
     {
       "group": "시작",
       "name": "MixRadarInfo",
-      "title": "SCC레이더 비젼 MIX",
+      "title": "SCC레이더 비젼 MIX(1)",
       "descr": "SCC레이더의 부족한 성능을 비젼거리측정데이터와 MIX하여 주행",
       "egroup": "START",
-      "etitle": "SCC Radar&Vision MIX",
+      "etitle": "SCC Radar&Vision MIX(1)",
       "edescr": "",
       "min": 0,
       "max": 1,
-      "default": 0,
+      "default": 1,
       "unit": 1
     },
     {
       "group": "시작",
       "name": "SccConnectedBus2",
-      "title": "SCC배선개조 BUS2연결(0)",
+      "title": "SCC배선개조 BUS2연결(1)",
       "descr": "",
       "egroup": "START",
-      "etitle": "SCC connected bus 2(0)",
+      "etitle": "SCC connected bus 2(1)",
       "edescr": "",
       "min": 0,
       "max": 1,
-      "default": 0,
+      "default": 1,
       "unit": 1
     },
     {
@@ -1208,7 +1221,7 @@
       "min": 100,
       "max": 300,
       "default": 110,
-      "unit": 5
+      "unit": 10
     },
     {
       "group": "차량간격",
@@ -1221,7 +1234,7 @@
       "min": 70,
       "max": 300,
       "default": 110,
-      "unit": 5
+      "unit": 10
     },
     {
       "group": "차량간격",
@@ -1234,7 +1247,7 @@
       "min": 70,
       "max": 300,
       "default": 120,
-      "unit": 5
+      "unit": 10
     },
     {
       "group": "차량간격",
@@ -1247,7 +1260,7 @@
       "min": 70,
       "max": 300,
       "default": 140,
-      "unit": 5
+      "unit": 10
     },
     {
       "group": "차량간격",
@@ -1260,7 +1273,7 @@
       "min": 70,
       "max": 300,
       "default": 160,
-      "unit": 5
+      "unit": 10
     },
     {
       "group": "감속제어",
@@ -1298,7 +1311,7 @@
       "edescr": "Not used",
       "min": 0,
       "max": 100,
-      "default": 30,
+      "default": 0,
       "unit": 10
     },
     {
@@ -1317,14 +1330,14 @@
     {
       "group": "감속제어",
       "name": "AutoNaviSpeedCtrl",
-      "title": "과속카메라 작동방법(2)",
+      "title": "과속카메라 작동방법(1)",
       "descr": "0:사용안함, 1:APM, 2:APM + 순정네비게이션, 3:NDA , 재시작필요",
       "egroup": "SPEED",
-      "etitle": "SpeedCam Method(2)",
+      "etitle": "SpeedCam Method(1)",
       "edescr": "0:Not used,1:APM, 2:APM+STOCK, 3:NDA (Reboot)",
       "min": 0,
       "max": 3,
-      "default": 2,
+      "default": 1,
       "unit": 1
     },
     {
@@ -1343,66 +1356,66 @@
     {
       "group": "감속제어",
       "name": "AutoNaviSpeedCtrlStart",
-      "title": "과속카메라감속 시작 시간(22초)",
+      "title": "과속카메라감속 시작 시간(40초)",
       "descr": "감속시작시점을 설정합니다.",
       "egroup": "SPEED",
-      "etitle": "NaviSpeedStartingPoint(22s)",
+      "etitle": "NaviSpeedStartingPoint(40s)",
       "edescr": "Deceleration initiation point (Mode1)",
       "min": 10,
       "max": 50,
-      "default": 22,
-      "unit": 1
+      "default": 40,
+      "unit": 5
     },
     {
       "group": "감속제어",
       "name": "AutoNaviSpeedCtrlEnd",
-      "title": "과속카메라감속 완료 시간(6초)",
+      "title": "과속카메라감속 완료 시간(20초)",
       "descr": "감속종료시점을 설정합니다.",
       "egroup": "SPEED",
-      "etitle": "NaviSpeedEndingPoint(6s)",
+      "etitle": "NaviSpeedEndingPoint(20s)",
       "edescr": "Deceleration completion point",
       "min": 3,
       "max": 20,
-      "default": 6,
-      "unit": 1
+      "default": 20,
+      "unit": 5
     },
     {
       "group": "감속제어",
       "name": "AutoNaviSpeedBumpDist",
-      "title": "사고방지턱 감속완료시점(10M)",
+      "title": "사고방지턱 감속완료시점(20M)",
       "descr": "",
       "egroup": "SPEED",
-      "etitle": "SpeedBumpEndingPoint(10M)",
+      "etitle": "SpeedBumpEndingPoint(20M)",
       "edescr": "",
       "min": 1,
       "max": 50,
-      "default": 10,
+      "default": 20,
       "unit": 5
     },
     {
       "group": "감속제어",
       "name": "AutoNaviSpeedBumpSpeed",
-      "title": "사고방지턱 속도(35Km/h)",
+      "title": "사고방지턱 속도(20Km/h)",
       "descr": "",
       "egroup": "SPEED",
-      "etitle": "SpeedBumpSpeed(35km/h)",
+      "etitle": "SpeedBumpSpeed(20km/h)",
       "edescr": "",
       "min": 10,
       "max": 100,
-      "default": 35,
-      "unit": 1
+      "default": 20,
+      "unit": 5
     },
     {
       "group": "감속제어",
       "name": "AutoNaviSpeedDecelRate",
-      "title": "과속카메라 감속율 x0.01m/s^2(80)",
+      "title": "과속카메라 감속율 x0.01m/s^2(10)",
       "descr": "낮으면 멀리서부터 감속함",
       "egroup": "SPEED",
-      "etitle": "NaviSpeedDecelRate 0.01m/s^2x(80)",
+      "etitle": "NaviSpeedDecelRate 0.01m/s^2x(10)",
       "edescr": "",
       "min": 10,
       "max": 200,
-      "default": 100,
+      "default": 10,
       "unit": 10
     },
     {
@@ -1416,7 +1429,7 @@
       "min": 80,
       "max": 120,
       "default": 105,
-      "unit": 1
+      "unit": 5
     }
   ]
 }

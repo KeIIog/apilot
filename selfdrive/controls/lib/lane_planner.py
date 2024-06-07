@@ -3,11 +3,12 @@ from cereal import log
 from common.filter_simple import FirstOrderFilter
 from common.numpy_fast import interp, clip, mean
 from common.realtime import DT_MDL
+from common.params import Params
 
 TRAJECTORY_SIZE = 33
 
 ENABLE_ZORROBYTE = True
-CAMERA_OFFSET = -0.06
+CAMERA_OFFSET = float(int(Params().get("CameraOffset", encoding="utf8")))*0.01
 PATH_OFFSET = 0.0
 
 class LanePlanner:

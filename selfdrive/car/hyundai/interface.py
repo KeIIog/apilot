@@ -119,7 +119,7 @@ class CarInterface(CarInterfaceBase):
       ret.mass = 1550. + STD_CARGO_KG  # weight per hyundai site https://www.hyundaiusa.com/us/en/vehicles/2019-ioniq-plug-in-hybrid/compare-specs
       ret.wheelbase = 2.7
       ret.steerRatio = 13.73
-      ret.minSteerSpeed = 32 * CV.MPH_TO_MS
+      #ret.minSteerSpeed = 32 * CV.MPH_TO_MS
     elif candidate == CAR.VELOSTER:
       ret.mass = 3558. * CV.LB_TO_KG
       ret.wheelbase = 2.80

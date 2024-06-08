@@ -879,7 +879,7 @@
       "max": 120,
       "default": 105,
       "unit": 5
-    }    
+    },    
     {
       "group": "버튼설정",
       "name": "CruiseButtonMode",
@@ -1425,6 +1425,6 @@
       "max": 300,
       "default": 160,
       "unit": 10
-    },
+    }
   ]
 }

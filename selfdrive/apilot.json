@@ -615,14 +615,14 @@
     {
       "group": "주행튜닝",
       "name": "JerkStartLimit",
-      "title": "JERK STARTx0.1(30)",
+      "title": "JERK STARTx0.1(40)",
       "descr": "값이 커지면 출발응답성이 빨라집니다.",
       "egroup": "LONG",
-      "etitle": "JERK STARTx0.1(30)",
+      "etitle": "JERK STARTx0.1(40)",
       "edescr": "",
       "min": 1,
       "max": 50,
-      "default": 30,
+      "default": 40,
       "unit": 10
     },
     {

@@ -160,14 +160,14 @@
     {
       "group": "Á¶ÇâÆ©´×",
       "name": "LiveSteerRatioApply",
-      "title": "LiveSteerRatioApply(95%)",
+      "title": "LiveSteerRatioApply(90%)",
       "descr": "",
       "egroup": "LAT",
-      "etitle": "LiveSteerRatioApply(95%)",
+      "etitle": "LiveSteerRatioApply(90%)",
       "edescr": "",
       "min": -200,
       "max": 200,
-      "default": 95,
+      "default": 90,
       "unit": 10
     },
     {

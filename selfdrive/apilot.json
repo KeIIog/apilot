@@ -160,14 +160,14 @@
     {
       "group": "조향튜닝",
       "name": "LiveSteerRatioApply",
-      "title": "LiveSteerRatioApply(90%)",
+      "title": "LiveSteerRatioApply(95%)",
       "descr": "",
       "egroup": "LAT",
-      "etitle": "LiveSteerRatioApply(90%)",
+      "etitle": "LiveSteerRatioApply(95%)",
       "edescr": "",
       "min": -200,
       "max": 200,
-      "default": 90,
+      "default": 95,
       "unit": 10
     },
     {
@@ -225,41 +225,41 @@
     {
       "group": "조향튜닝",
       "name": "SteeringRateCost",
-      "title": "SteeringRateCost(0)",
+      "title": "SteeringRateCost(100)",
       "descr": "조향률 제한 가중치",
       "egroup": "LAT",
-      "etitle": "xSteeringRateCost(0)",
+      "etitle": "xSteeringRateCost(100)",
       "edescr": "",
       "min": 0,
       "max": 1000,
-      "default": 0,
-      "unit": 100
+      "default": 100,
+      "unit": 50
     },
     {
       "group": "조향튜닝",
       "name": "LateralAccelCost",
-      "title": "_LateralAccelCost(25)",
+      "title": "_LateralAccelCost(1000)",
       "descr": "측면 가속도 제한 가중치",
       "egroup": "LAT",
-      "etitle": "x_LateralAccelCost(25)",
+      "etitle": "x_LateralAccelCost(1000)",
       "edescr": "",
       "min": 0,
       "max": 1000,
-      "default": 25,
-      "unit": 5
+      "default": 1000,
+      "unit": 100
     },
     {
       "group": "조향튜닝",
       "name": "LateralMotionCost",
-      "title": "_LateralMotionCost(25)",
+      "title": "_LateralMotionCost(100)",
       "descr": "헤딩 추종 가중치",
       "egroup": "LAT",
-      "etitle": "x_LateralMotionCost(25)",
+      "etitle": "x_LateralMotionCost(100)",
       "edescr": "",
       "min": 0,
       "max": 1000,
-      "default": 25,
-      "unit": 5
+      "default": 100,
+      "unit": 10
     },
     {
       "group": "조향튜닝",
@@ -316,15 +316,15 @@
     {
       "group": "조향튜닝",
       "name": "LateralJerkCost",
-      "title": "x_LateralJerkCost(25)",
+      "title": "x_LateralJerkCost(30)",
       "descr": "측면 제동감도 제한 가중치",
       "egroup": "LAT",
-      "etitle": "x_LateralJerkCost(25)",
+      "etitle": "x_LateralJerkCost(30)",
       "edescr": "",
       "min": 0,
       "max": 100,
-      "default": 25,
-      "unit": 5
+      "default": 30,
+      "unit": 10
     },
     {
       "group": "크루즈",
@@ -642,7 +642,7 @@
       "group": "주행튜닝",
       "name": "LongitudinalTuningKiV",
       "title": "KiV게인(0)",
-      "descr": "삭제예정: 정지중에만 반영",
+      "descr": "에러 적분게인",
       "egroup": "LONG",
       "etitle": "Long KiV(0)",
       "edescr": "",
@@ -862,27 +862,27 @@
     {
       "group": "감속제어",
       "name": "AutoCurveSpeedFactor",
-      "title": "커브속도조절비율(170%)",
+      "title": "커브속도조절비율(140%)",
       "descr": "높으면 커브속도가 느려집니다.",
       "egroup": "DECEL",
-      "etitle": "CurveSpeedFactor(170%)",
+      "etitle": "CurveSpeedFactor(140%)",
       "edescr": "Higher value, slow curve speed",
       "min": 50,
       "max": 300,
-      "default": 170,
+      "default": 140,
       "unit": 10
     },
     {
       "group": "감속제어",
       "name": "AutoCurveSpeedFactorIn",
-      "title": "커브속도조절비율진입(120%)",
+      "title": "커브속도조절비율진입(100%)",
       "descr": "올리면 진입속도를 더 줄이도록 노력합니다.",
       "egroup": "DECEL",
-      "etitle": "CurveSpeedFactorWeight(120%)",
+      "etitle": "CurveSpeedFactorWeight(100%)",
       "edescr": "Higher value, more speed down",
       "min": 0,
       "max": 300,
-      "default": 120,
+      "default": 100,
       "unit": 10
     },
     {

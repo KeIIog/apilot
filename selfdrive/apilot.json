@@ -238,10 +238,10 @@
     {
       "group": "조향튜닝",
       "name": "LateralAccelCost",
-      "title": "_LateralAccelCost(1000)",
+      "title": "_LateralAccelCost(100)",
       "descr": "측면 가속도 제한 가중치",
       "egroup": "LAT",
-      "etitle": "x_LateralAccelCost(1000)",
+      "etitle": "x_LateralAccelCost(100)",
       "edescr": "",
       "min": 0,
       "max": 1000,

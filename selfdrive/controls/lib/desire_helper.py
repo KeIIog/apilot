@@ -214,21 +214,21 @@ class DesireHelper:
       nav_speedDown = True if nav_turn or nav_type == 5 else False
       direction = LaneChangeDirection.left if nav_type in [1,3] else LaneChangeDirection.right if nav_type in [2,4,43] else LaneChangeDirection.none
   
-    if 5 < nav_distance < 300 and direction != LaneChangeDirection.none:
+    if 5 < nav_distance < 1000 and direction != LaneChangeDirection.none:
       if self.desireReady >= 0: # -1이면 현재의 네비정보는 사용안함.
         self.desireReady = 1
         if nav_turn:
-          if nav_distance < 60: # 턴시작
+          if nav_distance < 30: # 턴시작
             nav_direction = direction
           # 로드에지가 검출안되면 차로변경(토크필요), 그외 차로변경 명령
-          elif nav_distance < 200: # and (direction == LaneChangeDirection.right) and (road_edge_stat & 2 != 0) and not carstate.rightBlindspot and self.navActive==0: # 멀리있는경우 차로변경
+          elif nav_distance < 700: # and (direction == LaneChangeDirection.right) and (road_edge_stat & 2 != 0) and not carstate.rightBlindspot and self.navActive==0: # 멀리있는경우 차로변경
             need_torque = 1
             nav_turn = False
             nav_direction = direction
           else:
             nav_turn = False
             nav_direction = LaneChangeDirection.none
-        elif nav_distance < 180: # and self.navActive == 0: # 차로변경시작
+        elif nav_distance < 500: # and self.navActive == 0: # 차로변경시작
           need_torque = 2
           nav_direction = direction
         nav_event = EventName.audioTurn if nav_turn else EventName.audioLaneChange

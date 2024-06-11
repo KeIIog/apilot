@@ -425,7 +425,7 @@ class DesireHelper:
           self.turnState = 0
           if one_blinker:
             self.lane_change_state = LaneChangeState.preLaneChange
-            self.needTorque = True # 두번째부터 토크...
+            self.needTorque = False#True # 두번째부터 토크...
           else:
             self.lane_change_state = LaneChangeState.off
             self.lane_change_direction = LaneChangeDirection.none

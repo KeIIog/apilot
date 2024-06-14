@@ -225,40 +225,40 @@
     {
       "group": "조향튜닝",
       "name": "SteeringRateCost",
-      "title": "SteeringRateCost(100)",
+      "title": "SteeringRateCost(10)",
       "descr": "조향률 제한 가중치",
       "egroup": "LAT",
-      "etitle": "xSteeringRateCost(100)",
+      "etitle": "xSteeringRateCost(10)",
       "edescr": "",
       "min": 0,
       "max": 1000,
-      "default": 100,
-      "unit": 50
+      "default": 10,
+      "unit": 10
     },
     {
       "group": "조향튜닝",
       "name": "LateralAccelCost",
-      "title": "_LateralAccelCost(1000)",
+      "title": "_LateralAccelCost(200)",
       "descr": "측면 가속도 제한 가중치",
       "egroup": "LAT",
-      "etitle": "x_LateralAccelCost(1000)",
+      "etitle": "x_LateralAccelCost(200)",
       "edescr": "",
       "min": 0,
       "max": 1000,
-      "default": 1000,
+      "default": 200,
       "unit": 100
     },
     {
       "group": "조향튜닝",
       "name": "LateralMotionCost",
-      "title": "_LateralMotionCost(50)",
+      "title": "_LateralMotionCost(20)",
       "descr": "헤딩 추종 가중치",
       "egroup": "LAT",
-      "etitle": "x_LateralMotionCost(50)",
+      "etitle": "x_LateralMotionCost(20)",
       "edescr": "",
       "min": 0,
       "max": 1000,
-      "default": 50,
+      "default": 20,
       "unit": 10
     },
     {
@@ -316,15 +316,15 @@
     {
       "group": "조향튜닝",
       "name": "LateralJerkCost",
-      "title": "x_LateralJerkCost(20)",
+      "title": "x_LateralJerkCost(4)",
       "descr": "측면 제동감도 제한 가중치",
       "egroup": "LAT",
-      "etitle": "x_LateralJerkCost(20)",
+      "etitle": "x_LateralJerkCost(4)",
       "edescr": "",
       "min": 0,
       "max": 100,
-      "default": 30,
-      "unit": 10
+      "default": 4,
+      "unit": 1
     },
     {
       "group": "크루즈",
@@ -667,14 +667,14 @@
     {
       "group": "주행튜닝",
       "name": "LongitudinalActuatorDelayLowerBound",
-      "title": "_LADLowerBound(60)",
+      "title": "_LADLowerBound(20)",
       "descr": "낮추면 정지력증가, 가속력감소",
       "egroup": "LONG",
-      "etitle": "LADLowerBound(60)",
+      "etitle": "LADLowerBound(20)",
       "edescr": "",
       "min": 10,
       "max": 100,
-      "default": 60,
+      "default": 20,
       "unit": 10
     },
     {

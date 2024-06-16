@@ -555,7 +555,8 @@ class CruiseHelper:
         if ((resume_cond and (self.v_ego_kph >= self.autoResumeFromGasSpeed)) or CS.gas >= 0.6):
           longActiveUser = 3
           if self.preGasPressedMax >= 0.6: # 60%이상 GAS를 밟으면.. 기존속도..
-            v_cruise_kph = self.v_cruise_kph_backup 
+            #v_cruise_kph = self.v_cruise_kph_backup 
+            pass #keiiog
           elif self.autoResumeFromGasSpeedMode == 0: #현재속도로 세트
             v_cruise_kph = self.v_ego_kph_set  # 현재속도로 세트~
           elif self.autoResumeFromGasSpeedMode == 1:   #기존속도
@@ -711,7 +712,8 @@ class CruiseHelper:
           if self.xState == XState.softHold:
             longActiveUser = 1
           if CS.gasPressed and v_cruise_kph < self.v_ego_kph_set:
-            v_cruise_kph = self.v_ego_kph_set
+            #v_cruise_kph = self.v_ego_kph_set
+            pass #keiiog
           elif self.xState == XState.softHold:
             pass
           elif self.xState == XState.e2eStop and self.v_ego_kph < 5: #5km/h 미만, 신호감속중.. (-)를 누르면 크루즈해제... 이러면 설설가겠지? 다시누르면 정지..

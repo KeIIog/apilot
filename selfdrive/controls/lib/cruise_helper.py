@@ -257,7 +257,8 @@ class CruiseHelper:
 
       elif active_mode <= 0:
         if self.longActiveUser > 0:
-          self.v_cruise_kph_backup = v_cruise_kph
+          #self.v_cruise_kph_backup = v_cruise_kph  #keiiog
+          pass
           if self.longControlActiveSound >= 2:
             controls.events.add(EventName.cruisePaused)
         self.longActiveUser = active_mode

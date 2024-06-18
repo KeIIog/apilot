@@ -465,7 +465,7 @@ class CruiseHelper:
     speed = min(self.turnSpeed_prev / 3.6, clip(CS.vEgo, 0.5, 100.0))    
     
     #curvature = np.max(np.abs(orientationRates[12:20])) / speed  # 12: 약1.4~3.5초 미래의 curvature를 계산함.
-    curvature = np.max(np.abs(orientationRates[16:30])) / speed  # 커브 타이밍 수정 keiiog 20240529
+    curvature = np.max(np.abs(orientationRates[24:48])) / speed  # 커브 타이밍 수정 keiiog 20240529
     curvature = self.curvatureFilter.process(curvature) * self.autoCurveSpeedFactor
     turnSpeed = 300
     if abs(curvature) > 0.0001:

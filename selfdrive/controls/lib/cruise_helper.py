@@ -257,7 +257,7 @@ class CruiseHelper:
 
       elif active_mode <= 0:
         if self.longActiveUser > 0:
-          self.v_cruise_kph_backup = v_cruise_kph  
+          #self.v_cruise_kph_backup = v_cruise_kph    #keiiog
           pass
           if self.longControlActiveSound >= 2:
             controls.events.add(EventName.cruisePaused)
@@ -724,7 +724,8 @@ class CruiseHelper:
             v_cruise_kph = 3
             longActiveUser = -1
             pass
-          elif v_cruise_kph > self.v_ego_kph_set+2 and self.cruiseButtonMode in [1,2]:
+          #elif v_cruise_kph > self.v_ego_kph_set+2 and self.cruiseButtonMode in [1,2]:
+          elif v_cruise_kph > self.v_ego_kph_set and self.cruiseButtonMode in [1,2]:    #+2삭제
             v_cruise_kph = self.v_ego_kph_set
           else:
             if self.cruiseButtonMode==2:
@@ -867,19 +868,19 @@ class CruiseHelper:
 
       if brakePressed:
         longActiveUser = -2
-        self.longActiveUserReady, v_cruise_kph = self.check_brake_cruise_on(CS, v_cruise_kph)
+        #self.longActiveUserReady, v_cruise_kph = self.check_brake_cruise_on(CS, v_cruise_kph)   #keiiog
       elif CS.gasPressed:  
-        self.longActiveUserReady, v_cruise_kph = self.check_gas_cruise_on(CS, v_cruise_kph)
+        #self.longActiveUserReady, v_cruise_kph = self.check_gas_cruise_on(CS, v_cruise_kph)   #keiiog
       elif not CS.gasPressed and self.gasPressedCount > 0:
-        longActiveUser,v_cruise_kph = self.check_gas_cruise_on(CS, v_cruise_kph)
+        #longActiveUser,v_cruise_kph = self.check_gas_cruise_on(CS, v_cruise_kph)    #keiiog
       elif not brakePressed and self.preBrakePressed:
-        longActiveUser,v_cruise_kph = self.check_brake_cruise_on(CS, v_cruise_kph)
+        #longActiveUser,v_cruise_kph = self.check_brake_cruise_on(CS, v_cruise_kph)    #keiiog
       elif self.userCruisePaused:
         if self.v_ego_kph > 3.0 and self.dRel > 0 and self.vRel < 0:          
-          v_cruise_kph = self.v_ego_kph_set
+          #v_cruise_kph = self.v_ego_kph_set    #keiiog
           longActiveUser = 3
         elif self.v_ego_kph > 20.0 and self.xState == XState.e2eStop: # and abs(self.position_y) < 3.0:
-          v_cruise_kph = self.v_ego_kph_set
+          #v_cruise_kph = self.v_ego_kph_set    #keiiog
           longActiveUser = 3
         pass
 
@@ -894,7 +895,7 @@ class CruiseHelper:
 
 
       ###### 크루즈 속도제어~~~
-      self.v_cruise_kph_apply = self.cruise_control_speed(controls, CS, v_cruise_kph)
+      self.v_cruise_kph_apply = self.cruise_control_speed(controls, CS, v_cruise_kph)   #씨발 이게뭐야?
 
       ###### leadCar 관련 속도처리
       roadSpeed1 = self.roadSpeed * self.autoSpeedUptoRoadSpeedLimit

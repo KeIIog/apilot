@@ -873,15 +873,16 @@ class CruiseHelper:
 
       if brakePressed:
         longActiveUser = -2
-        self.longActiveUserReady, v_cruise_kph = self.check_brake_cruise_on(CS, v_cruise_kph)
+        #self.longActiveUserReady, v_cruise_kph = self.check_brake_cruise_on(CS, v_cruise_kph)
       elif CS.gasPressed:  
         longActiveUser = -1  # Gas pressed, do not engage 20240525 keiiog
-        self.longActiveUserReady, v_cruise_kph = self.check_gas_cruise_on(CS, v_cruise_kph)
+        #self.longActiveUserReady, v_cruise_kph = self.check_gas_cruise_on(CS, v_cruise_kph)
       elif not CS.gasPressed and self.gasPressedCount > 0:
         longActiveUser = -1  # Avoid auto engage after gas pedal release     #20240525 keiiog
         #longActiveUser,v_cruise_kph = self.check_gas_cruise_on(CS, v_cruise_kph)  #20240525 keiiog
       elif not brakePressed and self.preBrakePressed:
-        longActiveUser,v_cruise_kph = self.check_brake_cruise_on(CS, v_cruise_kph)
+        longActiveUser = -1
+        #longActiveUser,v_cruise_kph = self.check_brake_cruise_on(CS, v_cruise_kph)
 
       ########################################### 삭제 20240525  keiiog #######################################
       #elif self.userCruisePaused:

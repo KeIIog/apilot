@@ -257,7 +257,7 @@ class CruiseHelper:
 
       elif active_mode <= 0:
         if self.longActiveUser > 0:
-          self.v_cruise_kph_backup = v_cruise_kph #keiiog
+          self.v_cruise_kph_backup = v_cruise_kph 
           if self.longControlActiveSound >= 2:
             controls.events.add(EventName.cruisePaused)
         self.longActiveUser = active_mode
@@ -470,7 +470,7 @@ class CruiseHelper:
     turnSpeed = 300
     if abs(curvature) > 0.0001:
       turnSpeed = interp(curvature, V_CURVE_LOOKUP_BP, V_CRUVE_LOOKUP_VALS)
-      turnSpeed = clip(turnSpeed, MIN_CURVE_SPEED, 235)  # 255    keiiog
+      turnSpeed = clip(turnSpeed, MIN_CURVE_SPEED, 255)  
     else:
       turnSpeed = 300
 
@@ -573,27 +573,27 @@ class CruiseHelper:
             if self.xStop > 60.0 and self.gasPressedCount * DT_CTRL > 1.0: 
               if 60 > self.dRel > 0:
                 if self.leadCarSpeed  < self.v_ego_kph_set:
-                  #v_cruise_kph = self.v_ego_kph_set
+                  v_cruise_kph = self.v_ego_kph_set
                 else:
-                  #v_cruise_kph = self.v_cruise_kph_backup 
+                  v_cruise_kph = self.v_cruise_kph_backup 
               else:
-                #v_cruise_kph = self.v_cruise_kph_backup 
+                v_cruise_kph = self.v_cruise_kph_backup 
             else:
-              #v_cruise_kph = self.v_ego_kph_set  # 현재속도로 세트~
+              v_cruise_kph = self.v_ego_kph_set  # 현재속도로 세트~
     else:
       if self.autoCancelFromGasMode == 0: #[엑셀크루즈OFF:모드]
         pass #현재상태유지..
       elif longActiveUser > 0:
         #  2. 저속주행: cruiseOFF(autoResumeFromGasSpeed 이하): 조건(autoCancelFromGasMode)에 따라 선행차의 유무에 따라 크루즈 해제
         if self.v_ego_kph < self.autoResumeFromGasSpeed:
-          #v_cruise_kph = self.v_ego_kph_set
+          v_cruise_kph = self.v_ego_kph_set
           if self.autoCancelFromGasMode == 1:
             longActiveUser = -2
           elif self.autoCancelFromGasMode == 2 and self.dRel==0 or self.dRel > 80: # mode:2일때는 선행차가 없을때만
             longActiveUser = -2
         #  3. 신호감지감속중: cruiseOFF: 신호감지감속이 맘에 안드는 상태, 가속페달을 밟으면 해제
         elif self.xState in [XState.e2eStop, XState.e2eCruise, XState.e2eCruisePrepare] and self.v_ego_kph < v_cruise_kph and (self.trafficState % 10) == 1:
-          #v_cruise_kph = self.v_ego_kph_set
+          v_cruise_kph = self.v_ego_kph_set
           longActiveUser = -2
       
     # 앞차를 추월하기 위해 가속한경우, 앞차와의 거리가 감속가능한 거리가 아닌경우 크루즈OFF: 급격한 감속충격을 막기 위해.. (시험해야함)
@@ -664,13 +664,13 @@ class CruiseHelper:
             stop_dist = CS.vEgo ** 2 / (2.5 * 2)
             if stop_dist < self.xStop:
               longActiveUser = 3
-              #v_cruise_kph = self.v_ego_kph_set
+              v_cruise_kph = self.v_ego_kph_set
           else:        #속도가 빠르면... pass
             pass
         else:   #그냥 감속한경우, 현재속도세트
           if self.v_ego_kph >= self.autoResumeFromBrakeCarSpeed and self.autoResumeFromBrakeCarSpeed > 0:
             longActiveUser = 3
-            #v_cruise_kph = self.v_ego_kph_set
+            v_cruise_kph = self.v_ego_kph_set
 
     return longActiveUser, v_cruise_kph
 

@@ -257,7 +257,7 @@ class CruiseHelper:
 
       elif active_mode <= 0:
         if self.longActiveUser > 0:
-          self.v_cruise_kph_backup = v_cruise_kph 
+          #self.v_cruise_kph_backup = v_cruise_kph 
           if self.longControlActiveSound >= 2:
             controls.events.add(EventName.cruisePaused)
         self.longActiveUser = active_mode
@@ -556,7 +556,7 @@ class CruiseHelper:
         if ((resume_cond and (self.v_ego_kph >= self.autoResumeFromGasSpeed)) or CS.gas >= 0.6):
           longActiveUser = 3
           if self.preGasPressedMax >= 0.6: # 60%이상 GAS를 밟으면.. 기존속도..
-            v_cruise_kph = self.v_cruise_kph_backup 
+            #v_cruise_kph = self.v_cruise_kph_backup 
           elif self.autoResumeFromGasSpeedMode == 0: #현재속도로 세트
             v_cruise_kph = self.v_ego_kph_set  # 현재속도로 세트~
           elif self.autoResumeFromGasSpeedMode == 1:   #기존속도

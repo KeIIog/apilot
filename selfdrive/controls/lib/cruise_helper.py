@@ -543,11 +543,11 @@ class CruiseHelper:
           if self.autoResumeFromGas > 1:
             if self.auto_cruise_control:
               longActiveUser = 3
-            #v_cruise_kph = self.v_ego_kph_set  # 현재속도로 세트~
+            v_cruise_kph = self.v_ego_kph_set  # 현재속도로 세트~
         elif v_cruise_kph > self.autoResumeFromGasSpeed + 5.0 and v_cruise_kph < self.autoSyncCruiseSpeedMax:  
-          #v_cruise_kph = self.v_cruise_speed_up(v_cruise_kph, self.roadSpeed)
+          v_cruise_kph = self.v_cruise_speed_up(v_cruise_kph, self.roadSpeed)
           if self.autoSyncCruiseSpeedMax > 0 and v_cruise_kph > self.autoSyncCruiseSpeedMax:
-            #v_cruise_kph = self.autoSyncCruiseSpeedMax
+            v_cruise_kph = self.autoSyncCruiseSpeedMax
     
     #  (autoResumeFromGasSpeed보다 빠거나 60%이상 밟으면
     #    - autoResumeFromGasSpeedMode에 따라 속도 설정(기존속도, 현재속도)

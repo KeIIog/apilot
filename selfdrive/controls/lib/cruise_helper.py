@@ -556,19 +556,19 @@ class CruiseHelper:
         if ((resume_cond and (self.v_ego_kph >= self.autoResumeFromGasSpeed)) or CS.gas >= 0.6):
           longActiveUser = 3
           if self.preGasPressedMax >= 0.6: # 60%이상 GAS를 밟으면.. 기존속도..
-            #v_cruise_kph = self.v_cruise_kph_backup 
+            v_cruise_kph = self.v_cruise_kph_backup 
           elif self.autoResumeFromGasSpeedMode == 0: #현재속도로 세트
-            #v_cruise_kph = self.v_ego_kph_set  # 현재속도로 세트~
+            v_cruise_kph = self.v_ego_kph_set  # 현재속도로 세트~
           elif self.autoResumeFromGasSpeedMode == 1:   #기존속도
-              #v_cruise_kph = self.v_cruise_kph_backup 
+              v_cruise_kph = self.v_cruise_kph_backup 
           elif self.autoResumeFromGasSpeedMode == 2:   #레이더가 검출될때만 기존속도..
             if 60 > self.dRel > 0:
               if self.leadCarSpeed  < self.v_ego_kph_set:
-                #v_cruise_kph = self.v_ego_kph_set
+                v_cruise_kph = self.v_ego_kph_set
               else:
-                #v_cruise_kph = self.v_cruise_kph_backup 
+                v_cruise_kph = self.v_cruise_kph_backup 
             else:
-              #v_cruise_kph = self.v_ego_kph_set  # 현재속도로 세트~
+              v_cruise_kph = self.v_ego_kph_set  # 현재속도로 세트~
           elif self.autoResumeFromGasSpeedMode == 3: # 60M이상 직선도로일때 기존속도. 1초이상 페달밟음.
             if self.xStop > 60.0 and self.gasPressedCount * DT_CTRL > 1.0: 
               if 60 > self.dRel > 0:

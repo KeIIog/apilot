@@ -214,21 +214,21 @@ class DesireHelper:
       nav_speedDown = True if nav_turn or nav_type == 5 else False
       direction = LaneChangeDirection.left if nav_type in [1,3] else LaneChangeDirection.right if nav_type in [2,4,43] else LaneChangeDirection.none
   
-    if 5 < nav_distance < 300 and direction != LaneChangeDirection.none:
+    if 5 < nav_distance < 3000 and direction != LaneChangeDirection.none:
       if self.desireReady >= 0: # -1이면 현재의 네비정보는 사용안함.
         self.desireReady = 1
         if nav_turn:
-          if nav_distance < 60: # 턴시작
+          if nav_distance < 20: # 턴시작
             nav_direction = direction
           # 로드에지가 검출안되면 차로변경(토크필요), 그외 차로변경 명령
-          elif nav_distance < 200: # and (direction == LaneChangeDirection.right) and (road_edge_stat & 2 != 0) and not carstate.rightBlindspot and self.navActive==0: # 멀리있는경우 차로변경
+          elif nav_distance < 2000: # and (direction == LaneChangeDirection.right) and (road_edge_stat & 2 != 0) and not carstate.rightBlindspot and self.navActive==0: # 멀리있는경우 차로변경
             need_torque = 1
             nav_turn = False
             nav_direction = direction
           else:
             nav_turn = False
             nav_direction = LaneChangeDirection.none
-        elif nav_distance < 180: # and self.navActive == 0: # 차로변경시작
+        elif nav_distance < 1800: # and self.navActive == 0: # 차로변경시작
           need_torque = 2
           nav_direction = direction
         nav_event = EventName.audioTurn if nav_turn else EventName.audioLaneChange
@@ -411,7 +411,7 @@ class DesireHelper:
         elif carstate.steeringPressed and (nav_turn or self.turnState>0): #steering_pressed: # or (0 < nav_distance < 100 and carstate.gasPressed):
           self.lane_change_state = LaneChangeState.off
           self.lane_change_direction = LaneChangeDirection.none
-          if nav_distance < 100:
+          if nav_distance < 60:
             self.desireReady = -1
           self.turnState = 0
       # LaneChangeState.laneChangeFinishing
@@ -425,7 +425,7 @@ class DesireHelper:
           self.turnState = 0
           if one_blinker:
             self.lane_change_state = LaneChangeState.preLaneChange
-            self.needTorque = True # 두번째부터 토크...
+            self.needTorque = False # 두번째부터 토크...
           else:
             self.lane_change_state = LaneChangeState.off
             self.lane_change_direction = LaneChangeDirection.none

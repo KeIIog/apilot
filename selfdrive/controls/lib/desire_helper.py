@@ -279,30 +279,23 @@ class DesireHelper:
 
     trig_leftBlinker = True if carstate.leftBlinker and not self.prev_leftBlinker else False
     trig_rightBlinker = True if carstate.rightBlinker and not self.prev_rightBlinker else False
-############################################################################ 내용 추가 test keiiog
-    if nav_direction == LaneChangeDirection.right:
-      if not rightBlinker:
-        rightBlinker = True  
-            
+                 
+
+    if nav_direction == LaneChangeDirection.right:      
+      if leftBlinker:        
+        nav_direction = LaneChangeDirection.none
+        if nav_distance < 100:
+          self.desireReady = -1
+      else:
+        rightBlinker = True
     elif nav_direction == LaneChangeDirection.left:
-      if not leftBlinker:
-        leftBlinker = True                   
-###############################################################################전체수정 keiiog
-    #if nav_direction == LaneChangeDirection.right:
-      #if leftBlinker:
-        #nav_direction = LaneChangeDirection.none
-        #if nav_distance < 100:
-          #self.desireReady = -1
-      #else:
-        #rightBlinker = True
-    #elif nav_direction == LaneChangeDirection.left:
-      #if rightBlinker:
-        #nav_direction = LaneChangeDirection.none
-        #if nav_distance < 100:
-          #self.desireReady = -1
-      #else:
-        #leftBlinker = True
-################################################################################전체수정
+      if rightBlinker:
+        nav_direction = LaneChangeDirection.none
+        if nav_distance < 100:
+          self.desireReady = -1
+      else:
+        leftBlinker = True
+
     ## nav것과 carstate것과 같이 사용함.
     one_blinker = leftBlinker != rightBlinker
     ## 네비가 켜지면 강제로 상태변경

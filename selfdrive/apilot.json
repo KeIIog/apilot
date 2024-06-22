@@ -57,7 +57,7 @@
       "group": "조향일반",
       "name": "UseLaneLineSpeed",
       "title": "레인모드 작동 시작속도(0)",
-      "descr": "레인모드 사용: 1<=, 안함: 0 ",
+      "descr": "레인모드 사용: 1<=, 안함: 0, 추천 : 70 ",
       "egroup": "LATSET",
       "etitle": "LaneModeSpeed(0)",
       "edescr": "0:Not used",
@@ -103,7 +103,7 @@
       "min": -200,
       "max": 200,
       "default": 0,
-      "unit": 10
+      "unit": 5
     },
     {
       "group": "정지",
@@ -160,15 +160,15 @@
     {
       "group": "조향튜닝",
       "name": "LiveSteerRatioApply",
-      "title": "LiveSteerRatioApply(90%)",
+      "title": "LiveSteerRatioApply(85%)",
       "descr": "",
       "egroup": "LAT",
-      "etitle": "LiveSteerRatioApply(90%)",
+      "etitle": "LiveSteerRatioApply(85%)",
       "edescr": "",
       "min": -200,
       "max": 200,
-      "default": 90,
-      "unit": 10
+      "default": 85,
+      "unit": 5
     },
     {
       "group": "조향튜닝",
@@ -238,14 +238,14 @@
     {
       "group": "조향튜닝",
       "name": "LateralAccelCost",
-      "title": "_LateralAccelCost(200)",
+      "title": "_LateralAccelCost(500)",
       "descr": "측면 가속도 제한 가중치",
       "egroup": "LAT",
-      "etitle": "x_LateralAccelCost(200)",
+      "etitle": "x_LateralAccelCost(500)",
       "edescr": "",
       "min": 0,
       "max": 1000,
-      "default": 200,
+      "default": 500,
       "unit": 100
     },
     {
@@ -264,14 +264,14 @@
     {
       "group": "조향튜닝",
       "name": "LateralTorqueAccelFactor",
-      "title": "_LateralTorqueAccelFactor*0.001(2600)",
+      "title": "_LateralTorqueAccelFactor*0.001(2700)",
       "descr": "",
       "egroup": "LAT",
-      "etitle": "_LateralTorqueAccelFactor*0.001(2600)",
+      "etitle": "_LateralTorqueAccelFactor*0.001(2700)",
       "edescr": "",
       "min": 1000,
       "max": 4000,
-      "default": 2600,
+      "default": 2700,
       "unit": 100
     },
     {
@@ -615,14 +615,14 @@
     {
       "group": "주행튜닝",
       "name": "JerkStartLimit",
-      "title": "JERK STARTx0.1(40)",
+      "title": "JERK STARTx0.1(30)",
       "descr": "값이 커지면 출발응답성이 빨라집니다.",
       "egroup": "LONG",
-      "etitle": "JERK STARTx0.1(40)",
+      "etitle": "JERK STARTx0.1(30)",
       "edescr": "",
       "min": 1,
       "max": 50,
-      "default": 40,
+      "default": 30,
       "unit": 10
     },
     {

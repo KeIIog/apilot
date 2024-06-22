@@ -464,7 +464,7 @@ class CruiseHelper:
     # 계산된 결과로, oritetationRates를 나누어 조금더 curvature값이 커지도록 함.
     speed = min(self.turnSpeed_prev / 3.6, clip(CS.vEgo, 0.5, 100.0))    
     
-    curvature = np.max(np.abs(orientationRates[48:84])) / speed  # 12:24: 약1.4~3.5초 미래의 curvature를 계산함.
+    curvature = np.max(np.abs(orientationRates[24:48])) / speed  # 12:24: 약1.4~3.5초 미래의 curvature를 계산함.
     curvature = self.curvatureFilter.process(curvature) * self.autoCurveSpeedFactor
     turnSpeed = 300
     if abs(curvature) > 0.0001:
@@ -585,14 +585,14 @@ class CruiseHelper:
       elif longActiveUser > 0:
         #  2. 저속주행: cruiseOFF(autoResumeFromGasSpeed 이하): 조건(autoCancelFromGasMode)에 따라 선행차의 유무에 따라 크루즈 해제
         if self.v_ego_kph < self.autoResumeFromGasSpeed:
-          #v_cruise_kph = self.v_ego_kph_set
+          v_cruise_kph = self.v_ego_kph_set
           if self.autoCancelFromGasMode == 1:
             longActiveUser = -2
           elif self.autoCancelFromGasMode == 2 and self.dRel==0 or self.dRel > 80: # mode:2일때는 선행차가 없을때만
             longActiveUser = -2
         #  3. 신호감지감속중: cruiseOFF: 신호감지감속이 맘에 안드는 상태, 가속페달을 밟으면 해제
         elif self.xState in [XState.e2eStop, XState.e2eCruise, XState.e2eCruisePrepare] and self.v_ego_kph < v_cruise_kph and (self.trafficState % 10) == 1:
-          #v_cruise_kph = self.v_ego_kph_set
+          v_cruise_kph = self.v_ego_kph_set
           longActiveUser = -2
       
     # 앞차를 추월하기 위해 가속한경우, 앞차와의 거리가 감속가능한 거리가 아닌경우 크루즈OFF: 급격한 감속충격을 막기 위해.. (시험해야함)

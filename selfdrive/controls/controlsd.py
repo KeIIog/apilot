@@ -272,7 +272,7 @@ class Controls:
     #  self.events.add(EventName.preEnableStandstill)
 
     if CS.gasPressed:
-      self.longActiveUser = -1
+      self.longActiveUser = 0
       #self.events.add(EventName.gasPressedOverride)   #keiiog test
 
     if not self.CP.notCar:

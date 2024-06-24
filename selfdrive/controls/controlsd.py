@@ -273,7 +273,7 @@ class Controls:
     longActiveUser = self.longActiveUser 
 
     if CS.gasPressed:
-      longActivUser = -2
+      #longActivUser = -2
       #self.events.add(EventName.gasPressedOverride)   #keiiog test
 
     if not self.CP.notCar:

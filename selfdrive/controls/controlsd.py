@@ -270,7 +270,7 @@ class Controls:
       pass
     #if CS.brakePressed and CS.standstill:
     #  self.events.add(EventName.preEnableStandstill)
-    longActiveUser = self.longActiveUser 
+    #longActiveUser = self.longActiveUser 
 
     if CS.gasPressed:
       #longActivUser = -2

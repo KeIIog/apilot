@@ -271,8 +271,8 @@ class Controls:
     #if CS.brakePressed and CS.standstill:
     #  self.events.add(EventName.preEnableStandstill)
 
-    if CS.gasPressed:
-      pass#self.events.add(EventName.gasPressedOverride)   #keiiog test
+    #if CS.gasPressed:
+      #self.events.add(EventName.gasPressedOverride)   #keiiog test
 
     if not self.CP.notCar:
       self.events.add_from_msg(self.sm['driverMonitoringState'].events)

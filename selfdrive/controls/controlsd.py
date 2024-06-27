@@ -273,7 +273,7 @@ class Controls:
 
     if CS.gasPressed:
       pass
-    # self.events.add(EventName.gasPressedOverride)
+    # self.events.add(EventName.gasPressedOverride)   # gas 페달 입력시 오버라이드 되는부분 # 현재생략 
 
     if not self.CP.notCar:
       self.events.add_from_msg(self.sm['driverMonitoringState'].events)

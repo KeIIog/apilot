@@ -411,7 +411,7 @@ class DesireHelper:
         elif carstate.steeringPressed and (nav_turn or self.turnState>0): #steering_pressed: # or (0 < nav_distance < 100 and carstate.gasPressed):
           self.lane_change_state = LaneChangeState.off
           self.lane_change_direction = LaneChangeDirection.none
-          if nav_distance < 60:
+          if nav_distance < 30:
             self.desireReady = -1
           self.turnState = 0
       # LaneChangeState.laneChangeFinishing
@@ -425,7 +425,7 @@ class DesireHelper:
           self.turnState = 0
           if one_blinker:
             self.lane_change_state = LaneChangeState.preLaneChange
-            self.needTorque = False # 두번째부터 토크...
+            self.needTorque = False # 두번째부터 토크 on = true, off = false
           else:
             self.lane_change_state = LaneChangeState.off
             self.lane_change_direction = LaneChangeDirection.none

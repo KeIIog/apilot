@@ -810,15 +810,15 @@
     {
       "group": "감속제어",
       "name": "TrafficStopAccel",
-      "title": "신호정지 감속율 (120%)",
+      "title": "신호정지 감속율 (200%)",
       "descr": "신호를 만나면 서서히 감속하여 정지합니다.",
       "egroup": "DECEL",
-      "etitle": "TrafficDecelRatio(120%)",
+      "etitle": "TrafficDecelRatio(200%)",
       "edescr": "",
       "min": 100,
       "max": 1000,
       "default": 200,
-      "unit": 10
+      "unit": 100
     },
     {
       "group": "감속제어",

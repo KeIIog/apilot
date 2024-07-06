@@ -815,8 +815,8 @@
       "egroup": "DECEL",
       "etitle": "TrafficDecelRatio(120%)",
       "edescr": "",
-      "min": 5,
-      "max": 10,
+      "min": 100,
+      "max": 1000,
       "default": 120,
       "unit": 10
     },

@@ -271,8 +271,8 @@ class Controls:
     #if CS.brakePressed and CS.standstill:
     #  self.events.add(EventName.preEnableStandstill)
 
-    if CS.gasPressed:
-      pass
+    #if CS.gasPressed:
+      #pass
     # self.events.add(EventName.gasPressedOverride)   # gas 페달 입력시 오버라이드 되는부분 # 현재생략 
 
     if not self.CP.notCar:

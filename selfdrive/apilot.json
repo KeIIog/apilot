@@ -89,7 +89,7 @@
       "edescr": "(-)Left,(+)Right",
       "min": -50,
       "max": 50,
-      "default": 0,
+      "default": 10,
       "unit": 5
     },
     {
@@ -102,7 +102,7 @@
       "edescr": "(-)Left,(+)Right",
       "min": -200,
       "max": 200,
-      "default": 0,
+      "default": -10,
       "unit": 5
     },
     {
@@ -225,27 +225,27 @@
     {
       "group": "Á¶ÇâÆ©´×",
       "name": "SteeringRateCost",
-      "title": "SteeringRateCost(5)",
+      "title": "SteeringRateCost(10)",
       "descr": "Á¶Çâ·ü Á¦ÇÑ °¡ÁßÄ¡",
       "egroup": "LAT",
-      "etitle": "xSteeringRateCost(5)",
+      "etitle": "xSteeringRateCost(10)",
       "edescr": "",
       "min": 0,
       "max": 1000,
-      "default": 5,
+      "default": 10,
       "unit": 5
     },
     {
       "group": "Á¶ÇâÆ©´×",
       "name": "LateralAccelCost",
-      "title": "_LateralAccelCost(1000)",
+      "title": "_LateralAccelCost(100)",
       "descr": "Ãø¸é °¡¼Óµµ Á¦ÇÑ °¡ÁßÄ¡",
       "egroup": "LAT",
-      "etitle": "x_LateralAccelCost(1000)",
+      "etitle": "x_LateralAccelCost(100)",
       "edescr": "",
       "min": 0,
       "max": 1000,
-      "default": 1000,
+      "default": 100,
       "unit": 100
     },
     {
@@ -264,14 +264,14 @@
     {
       "group": "Á¶ÇâÆ©´×",
       "name": "LateralTorqueAccelFactor",
-      "title": "_LateralTorqueAccelFactor*0.001(3000)",
+      "title": "_LateralTorqueAccelFactor*0.001(2200)",
       "descr": "",
       "egroup": "LAT",
-      "etitle": "_LateralTorqueAccelFactor*0.001(3000)",
+      "etitle": "_LateralTorqueAccelFactor*0.001(2200)",
       "edescr": "",
       "min": 1000,
       "max": 4000,
-      "default": 3000,
+      "default": 2200,
       "unit": 100
     },
     {
